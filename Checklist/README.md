@@ -1,29 +1,21 @@
-# checklist
+# Список задач
 
-This template should help get you started developing with Vue 3 in Vite.
+Простой менеджер задач (checklist) на Vue 3 с TypeScript, CSS-модулями и реактивными состояниями.
 
-## Recommended IDE Setup
+---
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Функционал
 
-## Customize configuration
+- Создание новых задач с заголовком и описанием.
+- Отметка задач как выполненных.
+- Использование CSS-модулей для стилизации компонентов.
+- Полная типизация с TypeScript.
+- Компонентная структура:
+  - `Task.vue` — отображение одной задачи.
+  - `FormCreateTask.vue` — форма для создания новой задачи.
+  - `App.vue` — основной компонент приложения.
+- Реактивное хранение списка задач через Vue `reactive` и `computed`.
 
-See [Vite Configuration Reference](https://vite.dev/config/).
 
-## Project Setup
 
-```sh
-npm install
-```
 
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
