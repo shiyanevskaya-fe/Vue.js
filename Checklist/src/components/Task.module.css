@@ -1,0 +1,16 @@
+.task {
+  background-color: #f0f0f0;
+  padding: 15px 20px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 1rem;
+  color: #555;
+}
+
+.completedCheckbox {
+  margin-top: 10px;
+  width: auto;
+  cursor: pointer;
+}
