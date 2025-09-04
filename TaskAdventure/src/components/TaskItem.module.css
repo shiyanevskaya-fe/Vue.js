@@ -1,0 +1,91 @@
+.taskItem {
+    background-color: #e6e4e4;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px 12px;
+    justify-content: space-between;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.tags {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+}
+
+.difficulty {
+    padding: 2px 6px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid;
+    cursor: pointer;
+}
+
+.low {
+    background-color: rgb(182, 218, 182);
+    border-color: rgb(102, 255, 102);
+}
+
+.medium {
+    background-color: rgb(255, 255, 185);
+    border-color: rgb(248, 248, 77);
+}
+
+.high {
+    background-color: rgb(248, 180, 180);
+    border-color: rgb(251, 111, 111);
+}
+
+.completed {
+    background-color: rgb(191, 191, 248);
+    border: 1px solid;
+    border-color: rgb(139, 139, 244);
+    border-radius: 10px;
+    padding: 2px 6px;
+
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition: background-color 0.1s ease, transform 0.2s ease;
+}
+
+.completed:hover {
+    background-color: rgb(139, 139, 244);
+}
+
+.completed:active {
+    transform: scale(1.05);
+}
+
+.xp {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.xpIcon {
+    background-color: yellow;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px;
+    border-color: #ffd739;
+    color: #ffd739;
+    font-size: 14px;
+    text-align: center;
+}
