@@ -1,33 +1,43 @@
-# TaskAdventure
+# Task Adventure
 
-This template should help get you started developing with Vue 3 in Vite.
+Учебный проект на **Vue 3 + Vite + TypeScript**, демонстрирующий работу с компонентами, реактивностью, формами, Pinia и маршрутизацией.  
+Проект представляет задачи как квесты: каждая задача имеет сложность и очки опыта (XP). Выполнение задач отображается в прогресс-баре.
 
-## Recommended IDE Setup
+---
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Функционал
 
-## Type Support for `.vue` Imports in TS
+- **Добавление задач** через форму (`TaskForm.vue`):
+  - Название
+  - Описание
+  - Сложность (`low`, `medium`, `high`)
+  - Очки опыта (XP)
+- **Список задач** (`TaskList.vue`) с отдельными элементами (`TaskItem.vue`):
+  - Название и описание
+  - Сложность с цветовой маркировкой
+  - Чекбокс для отметки выполнения
+  - Показ очков опыта
+- **Фильтрация задач**:
+  - Отображение выполненных или активных задач
+- **Прогресс выполнения** (`XPBar.vue`):
+  - Текущий и максимальный XP
+  - Анимация прогресса
+- **Маршрутизация** через Vue Router:
+  - `/` – страница Account
+  - `/tasks` – страница со списком задач
+- **Глобальное состояние** через Pinia:
+  - Хранение массива задач
+  - Геттеры для завершённых и активных задач, текущего XP, максимального XP
+  - Метод добавления новых задач
+ 
+---
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## Используемые технологии
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
+- [Vue 3](https://vuejs.org/) (Composition API)
+- [Vite](https://vitejs.dev/) — окружение для сборки
+- [Pinia](https://pinia.vuejs.org/) — глобальное хранение состояния задач
+- [Vue Router](https://router.vuejs.org/) — маршрутизация
+- TypeScript — типизация
+- Reactive API: `ref`, `reactive`, `computed`, `watch`
+- CSS Modules для локальных стилей компонентов
