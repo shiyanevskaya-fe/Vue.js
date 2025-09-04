@@ -6,7 +6,9 @@
     import type { Task } from "@/interfaces/Task";
     import { computed, ref, watch } from 'vue';
     import { useTaskStore } from '@/store/tasks';
+    import BaseModal from '@/components/BaseModal.vue';
 
+    const isModalVisible = ref(false);
     const filterTask = ref(false);
 
     const taskStore = useTaskStore();
@@ -15,28 +17,46 @@
         taskStore.addNewTask(task);
     }
 
-    const tasks = computed<Task[]>(() => {
-    return filterTask.value
-        ? taskStore.completedTasks
-        : taskStore.pendingTasks;
-    });
 </script>
 <template>
-    <section :class="styles.tasks">
-        <div>
-            <TaskForm 
-                @create="createNewTask"
-                :id="taskStore.lastID"
-            />
+    <div :class="styles.container">
+        <div :class="styles.panelInfo">
+            <h1>My Task</h1>
+            <div :class="styles.btns">
+                <div>
+                    <button :class="[styles.btn, styles.blue, styles.add]"
+                    @click="isModalVisible = true">+</button>
+                    <BaseModal :visible="isModalVisible" @close="isModalVisible = false">
+                           <TaskForm 
+                                @create="createNewTask"
+                                :id="taskStore.lastID"
+                            />
+                    </BaseModal>
+                </div>
+            </div>
         </div>
-        <div :class="styles.container">
-            <select v-model="filterTask">
-                <option :value=false>Задачи</option>
-                <option :value=true>Завершенные</option>
-            </select>
-            <TaskList 
-                :tasks="tasks"
-            />
+        <div :class="styles.tasks">
+            <div :class="styles.toDoList">
+                <h3>To Do</h3>
+                <div :class="styles.line"></div>
+                <div>
+                    <TaskList 
+                        :tasks="taskStore.pendingTasks"
+                    />
+                </div>
+            </div>
+
+            <div :class="styles.DoneList">
+                <h3>Done</h3>
+                <div :class="styles.line"></div>
+                <div>
+                    <TaskList 
+                        :tasks="taskStore.completedTasks"
+                    />
+                </div>
+            </div>
+            
         </div>
-    </section>    
+    </div>
+    
 </template>

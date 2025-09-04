@@ -2,3 +2,23 @@
     margin: 0;
     padding: 0;
 }
+
+body {
+    background-color: #F5F6F8;
+    font-family: Montserrat;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 36px;
+}
+
+a{
+  text-decoration: none;
+}
+
+a:hover{
+  transform: scale(1.05);
+}

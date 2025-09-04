@@ -1,5 +1,5 @@
 .taskItem {
-    background-color: #e6e4e4;
+    background-color: #F5F6F8;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -19,6 +19,7 @@
     flex-direction: row;
     align-items: center;
     gap: 16px;
+    font-size: 12px;
 }
 
 .difficulty {

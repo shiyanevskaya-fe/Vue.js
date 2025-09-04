@@ -1,3 +1,47 @@
 .container {
     margin: 0px 104px;
 }
+
+.screen {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+}
+
+.leftInfoPanel {
+    background-color: #232428;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 24px;
+}
+
+.links a {
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.topPanel {
+    background-color: #FFFFFF;
+}
+
+.screen {
+    display: grid;
+    grid-template-columns: 18.5vw auto;
+    grid-template-rows: 100%;
+}
+
+.leftInfoPanel {
+    padding: 32px 20px;
+}
+
+.rightSection {
+    display: grid;
+    grid-template-columns: 100vw;
+    grid-template-rows: 4vw auto;
+}

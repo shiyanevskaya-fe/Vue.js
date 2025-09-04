@@ -1,13 +1,92 @@
-.tasks {
+/* .tasks {
     display: grid;
     grid-template-columns: max-content auto;
     gap: 36px;
-}
+} */
 
-.container {
+/* .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: start;
     gap: 16px;
+} */
+
+.container {
+    width: 80%;
+    margin-top: 40px;
+    margin-left: 10px;
 }
+
+.panelInfo {
+    background-color: #FFFFFF;
+    padding: 26px 36px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.btns {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.toDoList,
+.DoneList {
+    background-color: #FFFFFF;
+    padding: 26px 36px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.DoneList {
+    border-radius: 10px;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border: 1px solid #F5F6F8;
+    box-sizing: border-box;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.add {
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 8px;
+    font-size: 32px;
+    transition: background-color 0.1s ease, transform 0.2 ease;
+}
+
+.add:hover {
+    background-color: #054784;
+}
+
+.add:active {
+    transform: scale(1.02);
+}
+
+.blue {
+    background-color: #0063C0;
+    color: #FFFFFF;
+}
+

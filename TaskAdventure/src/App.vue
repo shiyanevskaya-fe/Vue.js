@@ -4,7 +4,7 @@ import styles from './App.module.css';
 </script>
 
 <template>
-  <div :class="styles.container">
+  <!-- <div :class="styles.container">
     <nav>
       <RouterLink to="/"> Account </RouterLink>
       <RouterLink to="/tasks"> Tasks </RouterLink>
@@ -12,25 +12,20 @@ import styles from './App.module.css';
     <main>
       <RouterView />
     </main>
+  </div> -->
+  <div :class="styles.screen">
+    <div :class="styles.leftInfoPanel">
+      <nav :class="styles.links">
+        <RouterLink to="/"> Account </RouterLink>
+        <RouterLink to="/tasks"> Tasks </RouterLink>
+      </nav>
+    </div>
+    <div :class="styles.rightSection">
+      <div :class="styles.topPanel"></div>
+      <div :class="styles.mainSection">
+        <RouterView />
+      </div>
+    </div>
   </div>
   
 </template>
-
-<style scoped>
-a{
-  text-decoration: none;
-  color: black;
-}
-
-a:hover{
-  transform: scale(1.05);
-}
-
-nav {
-  display: flex;
-  flex-direction: row;
-  gap: 24px;
-  margin-bottom: 24px;
-  margin-top: 12px;
-}
-</style>
