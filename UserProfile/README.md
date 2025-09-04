@@ -1,29 +1,17 @@
-# UserProfile
+# Личный кабинет
 
-This template should help get you started developing with Vue 3 in Vite.
+Простой интерактивный профиль пользователя на Vue 3 с использованием Composition API. Позволяет вводить имя, фамилию и возраст, сохраняет данные в localStorage, показывает ошибки при некорректном возрасте и позволяет очищать форму.
 
-## Recommended IDE Setup
+## Функционал
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- Ввод имени, фамилии и возраста с двусторонней привязкой (v-model).
 
-## Customize configuration
+- Автоматическое сохранение данных в localStorage с помощью наблюдателя watchEffect.
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+- Валидация возраста (допустимые значения 0–120) через watch, с подсветкой ошибок красной рамкой и выводом сообщения.
 
-## Project Setup
+- Кнопка «Очистить» для сброса всех полей.
 
-```sh
-npm install
-```
+- Реактивное отображение полного имени и приветствия с помощью вычисляемого свойства.
 
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+- Использование жизненного цикла компонентов (onMounted, onUpdated, onUnmounted).
