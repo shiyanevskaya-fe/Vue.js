@@ -4,17 +4,19 @@
     import TaskForm from '@/components/TaskForm.vue';
     import styles from "./Tasks.module.css";
     import type { Task } from "@/interfaces/Task";
-    import { computed, ref, watch } from 'vue';
+    import { ref, onMounted } from 'vue';
     import { useTaskStore } from '@/store/tasks';
     import BaseModal from '@/components/BaseModal.vue';
 
-    const isModalVisible = ref(false);
-    const filterTask = ref(false);
-
     const taskStore = useTaskStore();
+    onMounted(() => {
+        taskStore.fetchTasks();
+    });
 
-    function createNewTask(task: Task) : void{
-        taskStore.addNewTask(task);
+    const isModalVisible = ref(false);
+
+    async function createNewTask(task: Omit<Task, "id">) {
+        await taskStore.addNewTask(task);
     }
 
 </script>

@@ -4,11 +4,7 @@ import type { Task } from '@/interfaces/Task';
 export const useTaskStore = defineStore('tasks', {
   // Начальное состояние
   state: () => ({
-    tasks: [
-        { id: 1, title: "Пройти туториал Vue 3", description: "Изучить основы компонентов и реактивности", difficulty: "low", completed: false, xp: 50 },
-        { id: 2, title: "Создать TaskForm", description: "Реализовать форму добавления задач с валидацией", difficulty: "high", completed: false, xp: 100 },
-        { id: 3, title: "Добавить маршрутизацию", description: "Настроить Vue Router и динамические маршруты", difficulty: "medium", completed: true, xp: 70 }
-    ] as Task[]
+    tasks: [] as Task[]
   }),
 
   // Геттеры — аналог computed
@@ -33,8 +29,50 @@ export const useTaskStore = defineStore('tasks', {
 
   // Действия — аналог методов
   actions: {
-    addNewTask(task : Task) {
-        this.tasks.push(task);
-    }
+    async fetchTasks() {
+      try {
+        const res = await fetch("http://localhost:3000/tasks");
+        const data = await res.json();
+        this.tasks = data;
+      } catch (err) {
+        console.error("Ошибка при загрузке задач:", err);
+      }
+    },
+    async addNewTask(task: Omit<Task, "id">) {
+      try {
+        const res = await fetch("http://localhost:3000/tasks", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(task),
+        });
+        const newTask = await res.json();
+        this.tasks.push(newTask);
+      } catch (err) {
+        console.error("Ошибка при добавлении задачи:", err);
+      }
+    },
+    async updateTask(task: Task) {
+      try {
+        const res = await fetch(`http://localhost:3000/tasks/${task.id}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(task),
+        });
+        const updated = await res.json();
+        const index = this.tasks.findIndex(t => t.id === task.id);
+        if (index !== -1) this.tasks[index] = updated;
+      } catch (err) {
+        console.error("Ошибка при обновлении задачи:", err);
+      }
+    },
+
+    async deleteTask(id: number) {
+      try {
+        await fetch(`http://localhost:3000/tasks/${id}`, { method: "DELETE" });
+        this.tasks = this.tasks.filter(t => t.id !== id);
+      } catch (err) {
+        console.error("Ошибка при удалении задачи:", err);
+      }
+    },
   }
 });
